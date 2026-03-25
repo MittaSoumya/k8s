@@ -27,7 +27,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push mittasoumya/k8s:${BUILD_NUMBER}'
+                sh 'docker push mittasoumya/my-k8s:${BUILD_NUMBER}'
             }
         }
 
