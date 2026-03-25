@@ -31,6 +31,21 @@ pipeline {
             }
         }
 
+        stage('Run Docker Container') {
+            steps {
+                sh '''
+                # Stop old container if exists
+                docker stop my-k8s || true
+                docker rm my-k8s || true
+
+                # Run new container
+                docker run -d -p 3000:3000 \
+                --name my-k8s \
+                mittasoumya/my-k8s:${BUILD_NUMBER}
+                '''
+            }
+        }
+
         
             
         }
