@@ -19,8 +19,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build -t my-k8s-app:${BUILD_NUMBER} .
-                docker tag my-k8s-app:${BUILD_NUMBER} mittasoumya/k8s:${BUILD_NUMBER}
+                docker build -t my-k8s:${BUILD_NUMBER} .
+                docker tag my-k8s:${BUILD_NUMBER} mittasoumya/my-k8s:${BUILD_NUMBER}
                 '''
             }
         }
